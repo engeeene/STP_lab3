@@ -1,33 +1,51 @@
+import java.util.Arrays;
 
 public class Sorting {
     public static void start(int num, int n, int[] arr){
-        long time = System.nanoTime();
+        Metrics metrics = new Metrics();
         for (int i = 0; i<n; i++) {
             switch(num) {
                 case 1:
-                    time = System.nanoTime();
+                    metrics.start();
                     BubbleSort.sort(arr);
-                    System.out.format("%10d nano seconds for Bubble Sort%n", (System.nanoTime() - time));
+                    metrics.stop();
+                    System.out.format("%10d nano seconds and %10d bytes for Bubble Sort%n", metrics.getTime(), metrics.getMemory());
                     break;
                 case 2:
-                    time = System.nanoTime();
+                    metrics.start();
                     CombSort.sort(arr);
-                    System.out.format("%10d nano seconds for Comb Sort%n", (System.nanoTime() - time));
+                    metrics.stop();
+                    System.out.format("%10d nano seconds and %10d bytes for Comb Sort%n", metrics.getTime(), metrics.getMemory());
                     break;
                 case 3:
-                    time = System.nanoTime();
+                    metrics.start();
                     QuickSort.sort(arr);
-                    System.out.format("%10d nano seconds for Quick Sort%n", (System.nanoTime() - time));
+                    metrics.stop();
+                    System.out.format("%10d nano seconds and %10d bytes for Quick Sort%n", metrics.getTime(), metrics.getMemory());
                     break;
                 case 4:
-                    time = System.nanoTime();
+                    metrics.start();
                     ShellSort.sort(arr);
-                    System.out.format("%10d nano seconds for Shell Sort%n", (System.nanoTime() - time));
+                    metrics.stop();
+                    System.out.format("%10d nano seconds and %10d bytes for Shell Sort%n", metrics.getTime(), metrics.getMemory());
                     break;
                 case 5:
-                    time = System.nanoTime();
+                    metrics.start();
                     HeapSort.sort(arr);
-                    System.out.format("%10d nano seconds for Heap Sort%n", (System.nanoTime() - time));
+                    metrics.stop();
+                    System.out.format("%10d nano seconds and %10d bytes for Heap Sort%n", metrics.getTime(), metrics.getMemory());
+                    break;
+                case 6:
+                    metrics.start();
+                    Arrays.sort(arr);
+                    metrics.stop();
+                    System.out.format("%10d nano seconds and %10d bytes for Arrays.Sort()%n", metrics.getTime(), metrics.getMemory());
+                    break;
+                case 7:
+                    metrics.start();
+                    Arrays.sort(arr);
+                    metrics.stop();
+                    System.out.format("%10d nano seconds and %10d bytes for Arrays.Sort()%n", metrics.getTime(), metrics.getMemory());
                     break;
             }
         }
